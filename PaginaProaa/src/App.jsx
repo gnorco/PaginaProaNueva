@@ -1,9 +1,15 @@
+import React from 'react';
 import './App.css'
-import './components/NavBar'
 import NavBar from './components/NavBar'
+
 const App = () => {
   return(
-    <NavBar />
+    <div className="app-container">
+      <NavBar/>
+      <div className="background-image"></div>
+    </div>
   )
 }
+
 export default App
+
