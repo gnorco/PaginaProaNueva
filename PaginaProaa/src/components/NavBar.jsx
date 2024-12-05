@@ -69,7 +69,7 @@ const NavBar = () => {
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/proyectos4to">
-                Proyectos 4to Año
+                Proyectos de Estudiantes
               </Link>
             </li>
           </ul>
