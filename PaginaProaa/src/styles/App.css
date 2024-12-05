@@ -20,7 +20,7 @@ body {
 }
 
 .background-image {
-  position:absolute;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -31,8 +31,11 @@ body {
   z-index: -1;
 }
 
-/* Estilos adicionales para el navbar si es necesario */
+/* Estilos adicionales para el navbar */
 .navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
   z-index: 1000;
 }
 
@@ -47,23 +50,62 @@ body {
 
 main {
   flex: 1; /* This will make the main content area expand to fill available space */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 70px; /* Adjusted for the navbar height */
 }
 
-.titulo{
+.calendar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.titulo {
   position: absolute;
   color: #fff;
-  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 78px;
   font-weight: 900;
   top: 140px;
-  left:30px ;
+  left: 30px;
 }
-.t-tres{
+
+.t-tres {
   position: absolute;
   color: #fff;
-  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 48px;
   font-weight: 100;
-  top: 220px; 
-  left:32px ;
+  top: 220px;
+  left: 32px;
+}
+
+.nav-link {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #ffffff;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-link:hover {
+  color: #f8f9fa !important;
+}
+
+.margin {
+  margin-left: 30%;
 }

@@ -1,13 +1,38 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/NavBar.css';
 import { Link } from 'react-router-dom';
 
 const NavBar = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const backgroundHeight = document.getElementById('background-image')?.offsetHeight || 0;
+      setIsScrolled(window.scrollY > backgroundHeight);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <nav className="navbar navbar-expand-sm navbar-dark bg-transparent position-absolute w-100">
+    <nav
+      className={`navbar navbar-expand-sm ${
+        isScrolled ? 'navbar-scrolled' : 'bg-transparent'
+      } w-100`}
+    >
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
-          <img src="/proa.png" alt="Logo Proa" width="30" height="24" />
+          <img
+            src="/proa.png"
+            alt="Logo Proa"
+            width="50"
+            height="50"
+            className="rounded-circle"
+          />
         </Link>
         <button
           className="navbar-toggler"
@@ -55,4 +80,3 @@ const NavBar = () => {
 };
 
 export default NavBar;
-
